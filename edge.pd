@@ -12,6 +12,7 @@
 #X obj 48 233 spigot;
 #X floatatom 210 269 5 0 0 0 - - -, f 5;
 #X obj 101 179 <;
+#X obj 225 185 bang;
 #X connect 0 0 4 0;
 #X connect 2 0 10 1;
 #X connect 3 0 10 0;
