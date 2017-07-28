@@ -9,19 +9,19 @@
 10;
 #X obj 413 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 14;
-#X obj 428 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 428 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 443 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 458 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 473 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 473 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 488 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 503 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 518 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 518 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 533 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -29,7 +29,7 @@
 1;
 #X obj 563 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 578 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 578 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 593 143 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -85,7 +85,7 @@
 #X obj 86 59 i;
 #X obj 366 113 route 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
 #X obj 741 80 unpack 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15;
-#X floatatom 669 97 5 0 0 0 - - -, f 5;
+#X floatatom 669 97 5 0 0 0 - - -;
 #X obj 690 63 t l b;
 #X msg 717 126 0;
 #X obj 87 441 outlet;
@@ -94,7 +94,7 @@
 #X obj 615 81 r \$0-kick;
 #X obj 615 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113
 -1 -1;
-#X obj 86 92 edge;
+#X obj 86 92 upEdge;
 #X connect 0 0 51 0;
 #X connect 1 0 18 0;
 #X connect 1 1 20 0;
