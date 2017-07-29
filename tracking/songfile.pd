@@ -1,0 +1,123 @@
+#N canvas 501 172 1404 848 10;
+#X obj 321 314 s save-song;
+#X obj 304 500 r song-writer;
+#X obj 69 244 textfile;
+#X msg 304 579 add2 \$1;
+#X msg 23 243 print;
+#X msg 341 265 clear;
+#X msg 361 579 add;
+#X obj 926 290 savepanel;
+#X symbolatom 916 408 30 0 0 3 - - -, f 30;
+#X obj 302 363 symbol;
+#X obj 236 39 bng 14 250 50 0 \$0-file \$0-file-rcv pick -26 7 0 10
+-262144 -1 -1;
+#X obj 336 39 bng 14 500 50 0 \$0-save \$0-save-rcv save -26 7 0 10
+-262144 -1 -1;
+#X obj 286 39 bng 14 250 50 0 \$0-load \$0-load-rcv load -26 7 0 10
+-262144 -1 -1;
+#X symbolatom 20 39 30 0 0 0 - #0-ui-filename-rcv #0-ui-filename,
+f 30;
+#X msg 302 386 write \$1;
+#X obj 635 278 symbol;
+#X obj 69 315 s song-reader;
+#X msg 635 300 read \$1 \, rewind;
+#X obj 608 372 until;
+#X obj 608 394 b;
+#X obj 302 240 t b b b;
+#X obj 608 251 t b b;
+#X obj 24 70 inlet;
+#X obj 894 385 symbol;
+#X obj 897 195 loadbang;
+#X obj 924 242 symbol \$1;
+#X text 384 34 set filename by \$1 (creation argument) or inlet or
+savepanel;
+#X text 383 18 saving & loading parameters to text files;
+#X text 311 468 add each incoming list as single \; -terminated line
+;
+#X obj 897 217 t b b;
+#X obj 304 548 for-each 1;
+#X text 372 546 split list b/c msg-box can't take list as argument
+, f 28;
+#X obj 302 214 r \$0-save;
+#X obj 926 269 r \$0-file;
+#X msg 915 432 set \$1;
+#X obj 894 484 s \$0-filename;
+#X obj 927 316 r \$0-ui-filename;
+#X obj 915 454 s \$0-ui-filename-rcv;
+#X obj 335 339 r \$0-filename;
+#X obj 668 249 r \$0-filename;
+#X obj 608 202 r \$0-load;
+#X obj 24 92 s \$0-in-filename;
+#X obj 928 349 r \$0-in-filename;
+#X text 995 281 user picks file via `savepanel;
+#X text 953 220 default filename taken from initial argument;
+#X text 1033 315 user enters filename manually;
+#X text 1037 351 filename received via inlet;
+#X text 1045 445 update ui;
+#X obj 69 219 r \$0-to-textfile;
+#X obj 341 288 s \$0-to-textfile;
+#X obj 302 411 s \$0-to-textfile;
+#X obj 304 611 s \$0-to-textfile;
+#X obj 114 267 s \$0-textfile-done;
+#X obj 635 349 r \$0-textfile-done;
+#X obj 608 416 s \$0-to-textfile;
+#X obj 635 323 s \$0-to-textfile;
+#X obj 66 378 s pdikmann.songfile.save;
+#X obj 66 357 s de.philippdikmann.songfile.save;
+#X text 88 190 textfile;
+#X text 901 170 filename;
+#X text 314 191 saving (writing);
+#X text 635 175 loading (reading);
+#X text 381 71 songfile.pd writes and reads patch parameters to files.
+any subpatch that wants to save its parameters can send them to `song-writer
+(when prompted by a bang from `save-song) \, and receive them from
+`song-reader. this is best done using the supplied patches saving.pd
+and loading.pd;
+#X text 10 403 FIXME use better namespace for sends/receives;
+#X obj 673 203 loadbang;
+#X obj 673 225 delay 100;
+#X obj 82 292 print-debug songfile/textfile;
+#X obj 319 524 print-debug songfile/writer;
+#X connect 1 0 30 0;
+#X connect 1 0 67 0;
+#X connect 2 0 16 0;
+#X connect 2 0 66 0;
+#X connect 2 1 52 0;
+#X connect 3 0 51 0;
+#X connect 4 0 2 0;
+#X connect 5 0 49 0;
+#X connect 6 0 51 0;
+#X connect 7 0 23 0;
+#X connect 9 0 14 0;
+#X connect 14 0 50 0;
+#X connect 15 0 17 0;
+#X connect 17 0 55 0;
+#X connect 18 0 19 0;
+#X connect 19 0 54 0;
+#X connect 20 0 9 0;
+#X connect 20 1 0 0;
+#X connect 20 2 5 0;
+#X connect 21 0 18 0;
+#X connect 21 1 15 0;
+#X connect 22 0 41 0;
+#X connect 23 0 8 0;
+#X connect 23 0 34 0;
+#X connect 23 0 35 0;
+#X connect 24 0 29 0;
+#X connect 25 0 23 0;
+#X connect 29 1 25 0;
+#X connect 30 0 3 0;
+#X connect 30 1 6 0;
+#X connect 32 0 20 0;
+#X connect 33 0 7 0;
+#X connect 34 0 37 0;
+#X connect 36 0 23 0;
+#X connect 38 0 9 1;
+#X connect 39 0 15 1;
+#X connect 40 0 21 0;
+#X connect 42 0 23 0;
+#X connect 48 0 2 0;
+#X connect 53 0 18 1;
+#X connect 64 0 65 0;
+#X connect 65 0 21 0;
+#X coords 0 -1 1 1 330 33 1 20 20;

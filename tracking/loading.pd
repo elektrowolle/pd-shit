@@ -1,0 +1,6 @@
+#N canvas 14 117 165 134 10;
+#X obj 13 13 r song-reader;
+#X obj 13 41 route \$1;
+#X obj 13 63 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;

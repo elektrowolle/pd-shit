@@ -1,0 +1,16 @@
+track-2 titles right left hey ho _ _ _ _ _ _ _ _ _ _ _ _;
+track-2 clip-data 2 more-sliders 0 64 127;
+track-2 clip-data 4 more-sliders 93 57 57;
+track-2 clip-data 2 more-sliders 76 42 82;
+track-2 clip-data 1 more-sliders 40 80 44;
+track-2 clip-data 3 more-sliders 25 57 57;
+track-2 misc 0 1 2;
+track-1 titles zero medium maximum slide-up slide-down _ _ _ _ _ _
+_ _ _ _ _;
+track-1 clip-data 4 sliders 0 0 0;
+track-1 clip-data 1 sliders 0 0 0;
+track-1 clip-data 4 sliders 26 62 102;
+track-1 clip-data 5 sliders 106 67 30;
+track-1 clip-data 2 sliders 57 57 58;
+track-1 clip-data 3 sliders 127 127 127;
+track-1 misc 0 1 4;

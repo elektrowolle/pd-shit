@@ -1,0 +1,77 @@
+#N canvas 132 100 813 878 10;
+#X obj 617 103 hsl 128 15 0 127 0 0 empty empty one -2 -8 0 10 -262144
+-1 -1 4700 1;
+#X obj 617 136 hsl 128 15 0 127 0 0 empty empty two -2 -8 0 10 -262144
+-1 -1 8800 1;
+#X obj 617 169 hsl 128 15 0 127 0 0 empty empty three -2 -8 0 10 -262144
+-1 -1 2000 1;
+#X obj 514 202 pack f f f, f 12;
+#X obj 437 132 loading sliders;
+#X obj 515 169 unpack f f f;
+#X text 29 89 it is recommended to set the desired filename as an initialization
+argument (so it gets saved in the patch and you don't have to search
+for it everytime you want to load your last song).;
+#X symbolatom 572 375 24 0 0 2 symbol - -, f 24;
+#X obj 435 320 loading a-symbol;
+#X obj 437 419 saving a-symbol;
+#X obj 434 17 songfile songfile-help.txt;
+#X obj 435 342 symbol;
+#X obj 429 471 loading a-list;
+#X obj 561 539 list;
+#X msg 582 474 1 2 3;
+#X obj 561 561 print a-list;
+#X obj 429 493 t b a;
+#X msg 590 495 4 5 6;
+#X obj 437 237 saving sliders;
+#X obj 432 597 saving a-list;
+#X text 29 20 use songfile.pd to save and load parameters (of any kind)
+to and from your harddrive. this is useful for things that don't get
+saved in the patch by pd \, or more complex data (like lists \, patterns
+etc.).;
+#X text 29 218 any patch/subpatch that wants to save to the songfile
+can use the helper patches saving.pd and loading.pd to send/receive
+the data whenever the user saves/loads a song file.;
+#X text 29 386 make sure that a pair of saving.pd and loading.pd always
+have the same unique initial argument!;
+#X symbolatom 604 694 10 0 0 2 symbol - -, f 10;
+#X obj 428 657 loading multiple;
+#X obj 427 793 saving multiple;
+#X obj 512 745 pack f s, f 10;
+#X obj 513 712 unpack f s;
+#X text 29 330 saving.pd bangs when a song is being saved. use this
+to grab the most recent values \, e.g. by banging a 'pack' node that
+is connected to the saving node.;
+#X text 29 287 loading.pd just outputs the new values whenever a song
+is loaded. use 'unpack' when restoring multiple values.;
+#X text 129 181 -------- usage --------;
+#X floatatom 605 658 5 0 0 2 number - -, f 5;
+#X msg 31 551 \; de.philippdikmann.debug 1;
+#X msg 31 589 \; de.philippdikmann.debug 0;
+#X connect 0 0 3 0;
+#X connect 1 0 3 1;
+#X connect 2 0 3 2;
+#X connect 3 0 18 0;
+#X connect 4 0 5 0;
+#X connect 5 0 0 0;
+#X connect 5 1 1 0;
+#X connect 5 2 2 0;
+#X connect 7 0 9 0;
+#X connect 8 0 11 0;
+#X connect 9 0 7 0;
+#X connect 11 0 7 0;
+#X connect 12 0 16 0;
+#X connect 13 0 15 0;
+#X connect 13 0 19 0;
+#X connect 14 0 13 1;
+#X connect 16 0 13 0;
+#X connect 16 1 13 1;
+#X connect 17 0 13 1;
+#X connect 18 0 3 0;
+#X connect 19 0 13 0;
+#X connect 23 0 26 1;
+#X connect 24 0 27 0;
+#X connect 25 0 26 0;
+#X connect 26 0 25 0;
+#X connect 27 0 31 0;
+#X connect 27 1 23 0;
+#X connect 31 0 26 0;

@@ -1,0 +1,96 @@
+#N canvas 527 130 1004 795 10;
+#X obj 461 90 track 1;
+#X obj 552 90 track 2;
+#X text 15 84 track.pd integrates with songfile.pd to save and load
+tracks easily.;
+#X text 69 144 -------- usage --------;
+#X obj 739 398 hsl 128 15 0 127 0 0 empty empty one -2 -8 0 10 -262144
+-1 -1 2600 1;
+#X obj 739 431 hsl 128 15 0 127 0 0 empty empty two -2 -8 0 10 -262144
+-1 -1 6200 1;
+#X obj 739 464 hsl 128 15 0 127 0 0 empty empty three -2 -8 0 10 -262144
+-1 -1 10200 1;
+#X obj 636 497 pack f f f, f 12;
+#X obj 637 464 unpack f f f;
+#X obj 460 398 clip-load-save-clear 1 sliders;
+#X msg 637 421 0 0 0;
+#X obj 461 42 songfile track-help.txt;
+#X msg 100 1061 \; de.philippdikmann.debug 1;
+#X msg 100 1094 \; de.philippdikmann.debug 0;
+#X obj 770 557 hsl 128 15 0 127 0 0 empty empty four -2 -8 0 10 -262144
+-1 -1 7600 1;
+#X obj 770 590 hsl 128 15 0 127 0 0 empty empty five -2 -8 0 10 -262144
+-1 -1 4200 1;
+#X obj 770 623 hsl 128 15 0 127 0 0 empty empty six -2 -8 0 10 -262144
+-1 -1 8200 1;
+#X obj 667 656 pack f f f, f 12;
+#X obj 668 623 unpack f f f;
+#X obj 461 557 clip-load-save-clear 2 more-sliders;
+#X msg 668 580 0 64 127;
+#X text 22 178 the basic principle is: any change you make to your
+parameters is stored in the current clip. this is achieved by saving
+the clip whenever you switch to another one.;
+#X text 22 527 clip 0 is the default clip. you cannot store values
+in this clip \, and switching to clip 0 will reset all parameters to
+their default value.;
+#X text 22 240 (this is a bit counter-intuitive \, because it means
+your changes are not saved until you select another clip! you can 'force'
+a save without selecting another clip by selecting the same clip again.)
+;
+#X text 22 364 when a clip contains data \, it will be loaded into
+your parameters. don't worry: your previous settings will be stored
+in the previous clip (unless the previous clip was clip 0).;
+#X text 22 315 when selecting a clip \, different things happen depending
+on wether it contains data (is named) or is new (unnamed):;
+#X text 22 439 when a clip is new/fresh \, it will receive a random
+name (that you can change). afterwards \, the 'copy-mode' toggle determines
+wether data is copied over from the previous clip (ON) or the clip
+is initialized with the default values (OFF).;
+#X text 22 589 the 'align' setting determines how quickly clips are
+changed. this only works in conjunction with transport.pd. use this
+to make clips start/stop in sync with the beat: a value of 0 means
+'switch immediately' \, a value of 1 means 'switch on the next bar'
+\, a value of 2 means 'switch on the next even bar' \, etc.;
+#X text 22 690 the 'x' and 'xxx' buttons are used to clear the current
+clip or the entire track \, respectively.;
+#X text 15 9 track.pd is an approximation of Ableton Lives session
+view. it allows sets of values to be stored in (and recalled from)
+'clips'. using multiple tracks \, the user can then mix and match clips
+freely to explore different musical ideas.;
+#X text 72 742 -------- integration --------;
+#X text 22 857 inlet 1 is for receiving data (for saving into the clip)
+;
+#X text 22 886 outlet 1 outputs data when a clip is loaded;
+#X text 21 920 outlet 2 bangs once when a clip is being saved \; use
+this to trigger a 'pack' node (or similar) to feed data into inlet
+1;
+#X text 22 973 outlet 3 bangs once when the clip is cleared \; use
+this to set the connected parameters to their default values (e.g.
+filters open \, sequencers stopped).;
+#X text 22 775 to integrate with track.pd \, you can use the clip-load-save-clear.pd
+helper patch. you need to supply 2 initialization arguments: the first
+is the track number you intend to save to \, and the second is a unique
+name for this set of parameters. it also has 1 inlet and 3 outlets:
+;
+#X connect 4 0 7 0;
+#X connect 5 0 7 1;
+#X connect 6 0 7 2;
+#X connect 7 0 9 0;
+#X connect 8 0 4 0;
+#X connect 8 1 5 0;
+#X connect 8 2 6 0;
+#X connect 9 0 8 0;
+#X connect 9 1 7 0;
+#X connect 9 2 10 0;
+#X connect 10 0 8 0;
+#X connect 14 0 17 0;
+#X connect 15 0 17 1;
+#X connect 16 0 17 2;
+#X connect 17 0 19 0;
+#X connect 18 0 14 0;
+#X connect 18 1 15 0;
+#X connect 18 2 16 0;
+#X connect 19 0 18 0;
+#X connect 19 1 17 0;
+#X connect 19 2 20 0;
+#X connect 20 0 18 0;
