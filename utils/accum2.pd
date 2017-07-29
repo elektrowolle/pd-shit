@@ -1,0 +1,22 @@
+#N canvas 49 128 450 300 10;
+#X obj 53 45 inlet;
+#X obj 53 191 list;
+#X obj 53 213 outlet;
+#X obj 191 92 t b b;
+#X obj 149 150 list prepend;
+#X obj 218 121 list;
+#X obj 53 133 b;
+#X obj 53 67 route clear bang;
+#X text 164 36 accumulate values (in one long list). 'bang' outputs
+list. 'clear' clears list., f 37;
+#X connect 0 0 7 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 4 0 1 1;
+#X connect 4 0 5 0;
+#X connect 5 0 4 1;
+#X connect 6 0 1 0;
+#X connect 7 0 3 0;
+#X connect 7 1 6 0;
+#X connect 7 2 4 0;

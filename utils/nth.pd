@@ -1,0 +1,22 @@
+#N canvas 198 263 724 450 10;
+#X obj 204 273 list;
+#X obj 132 349 list split 1;
+#X obj 135 321 list split 0;
+#X obj 119 208 t b f;
+#X obj 119 95 inlet;
+#X obj 226 97 inlet;
+#X obj 130 377 outlet;
+#X obj 119 127 route bang;
+#X obj 119 149 float \$1;
+#X text 118 20 takes the element indexed by inlet 1 (or argument \$1)
+from the list provided on inlet 2, f 48;
+#X connect 0 0 2 0;
+#X connect 1 0 6 0;
+#X connect 2 1 1 0;
+#X connect 3 0 0 0;
+#X connect 3 1 2 1;
+#X connect 4 0 7 0;
+#X connect 5 0 0 1;
+#X connect 7 0 8 0;
+#X connect 7 1 3 0;
+#X connect 8 0 3 0;
