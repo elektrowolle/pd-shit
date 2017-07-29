@@ -1,0 +1,17 @@
+#N canvas 0 87 450 300 10;
+#X msg 131 91 0;
+#X msg 101 70 1;
+#X obj 56 92 spigot 0;
+#X obj 101 48 inlet;
+#X obj 56 48 inlet;
+#X obj 56 114 t a b;
+#X obj 56 136 outlet;
+#X text 55 11 once: allows a single message from first inlet to pass
+ONLY after arming on second inlet. blocks everything else.;
+#X connect 0 0 2 1;
+#X connect 1 0 2 1;
+#X connect 2 0 5 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 5 1 0 0;
