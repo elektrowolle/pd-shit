@@ -1,0 +1,5 @@
+#N canvas 62 108 404 87 10;
+#X obj 171 40 songfile-help;
+#X text 21 16 saving.pd and loading.pd are helper patches for songfile.pd
+;
+#X text 141 40 see;
