@@ -1,0 +1,9 @@
+#N canvas 0 0 450 300 10;
+#X obj 5 85 timer;
+#X obj 5 45 t b b;
+#X obj 5 5 key;
+#X obj 5 125 print;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 1 1 0 1;
+#X connect 2 0 1 0;

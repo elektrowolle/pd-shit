@@ -1,0 +1,15 @@
+#N canvas 0 0 450 300 10;
+#X obj 0 0 inlet;
+#X obj 100 0 inlet;
+#X obj 5 45 t b f;
+#X obj 5 205 outlet;
+#X obj 5 165 list split 1;
+#X obj 5 125 list split;
+#X obj 5 85 list;
+#X connect 0 0 2 0;
+#X connect 1 0 6 1;
+#X connect 2 0 6 0;
+#X connect 2 1 5 1;
+#X connect 4 0 3 0;
+#X connect 5 1 4 0;
+#X connect 6 0 5 0;
